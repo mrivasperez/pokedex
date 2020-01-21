@@ -1,7 +1,7 @@
 # Pokédex : A First Series Pokémon Pokédex
 by mrivasperez. demo: <https://mrivasperez.github.io/pokedex/>
 ## Screenshot
-[!A secreenshot of the pokedex running on chrome in a mac](assets/screenshot.pmg)
+[!A screenshot of the pokedex running on chrome in a mac](assets/screenshot.png)
 ## Description
 This is a simple Pokédex to view your favorite Pokémon from the first series. It was developed using HTML, CSS, and Vanilla JS along with the PokéAPI (<https://pokeapi.co/>) and images from <https://pokeres.bastionbot.org>
 
