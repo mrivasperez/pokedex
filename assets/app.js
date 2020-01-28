@@ -75,7 +75,7 @@ function createPokemonCard(pokemon){
     `;
     //add html
     pokemonEl.innerHTML = pokeInnerHtml;
-    // add the 
+    // append (add) new pokemon to the list
     poke_container.appendChild(pokemonEl);
 
 }
