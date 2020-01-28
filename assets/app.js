@@ -1,8 +1,8 @@
 //selector for poke_container ID
-const pokle_container = 
+const poke_container = 
 document.getElementById('poke_container');
 
-//object to get more common poke type
+//object to create colors for poke types
 const colors = {
     fire: '#FDDFDF',
 	grass: '#DEFDE0',
@@ -20,20 +20,20 @@ const colors = {
 	normal: '#F5F5F5'
 }
 
-//get rid of color keys from const colors
+// get rid of color keys from const colors
 const main_types = Object.keys(colors);
 
-//number of pokemons to be displayed
+// set number of pokemons to be displayed
 const pokemons_number = 150;
 
-//get pokemon
+// get pokemon
 const fetchPokemon = async() => {
     for(let i = 1; i <= pokemons_number; i++){
         await getPokemon(i);
     }
 }
 
-//get the pokemon from pokeapi
+// get the pokemon from pokeapi
 const getPokemon = async id => {
     const url = `https://pokeapi.co/api/v2/pokemon/${id}`;
     const res = await fetch(url);
@@ -41,32 +41,24 @@ const getPokemon = async id => {
     createPokemonCard(pokemon);
 }
 
-//create the pokemon card
+// create the pokemon card
 function createPokemonCard(pokemon){
-
     //create a new div
     const pokemonEl = document.createElement('div');
-
     //add class of pokemon to div
     pokemonEl.classList.add('pokemon');
-
     //get array of types, map over them, and select which one appears first
     const poke_types = pokemon.types.map(el => el.type.name);
-
     //find all the types and get the first one that is in the array above
     const type = main_types.find(
         type => poke_types.indexOf(type) > -1
     );
-    
     //capitalize the first letter of Pokemon name
     const name = pokemon.name[0].toUpperCase() + pokemon.name.slice(1);
-
     //get the color of the Pokemon
     const color = colors[type];
-
-    //change background color of card to relevant color
+    //change background color of card to relevant color per type
     pokemonEl.style.backgroundColor = color;
-
     //add pokemon card text
     //TODO!!!!!!!!!!!
     //reformat type to say, cap[0] Type
@@ -81,10 +73,9 @@ function createPokemonCard(pokemon){
             <small class = "type">Type: <span>${type}</span></small>
         </div>
     `;
-
     //add html
     pokemonEl.innerHTML = pokeInnerHtml;
-    //run again
+    // add the 
     poke_container.appendChild(pokemonEl);
 
 }
